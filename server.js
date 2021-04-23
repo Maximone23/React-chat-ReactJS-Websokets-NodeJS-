@@ -1,18 +1,23 @@
 //Connecting the ExpressJS Framework
 const express = require('express');
-//Connecting Socket.io
-const ws = require('socket.io');
-
+//Create Express App
 const app = express();
+//Create Server
+const server = require('http').Server(app);
+//Connecting Socket.io
+const io = require('socket.io')(server)
 
 const rooms = new Map();
 
 app.get('/rooms', (req, res) => {
-    rooms.set()
     res.json(rooms)
 });
 
-app.listen(5555, (err) => {
+io.on('connection', socket => {
+    console.log('User connected', socket.id);
+});
+
+server.listen(5555, (err) => {
     if (err) {
         throw Error(err)
     }
