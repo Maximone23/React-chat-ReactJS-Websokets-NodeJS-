@@ -5,7 +5,11 @@ const app = express();
 //Create Server
 const server = require('http').Server(app);
 //Connecting Socket.io
-const io = require('socket.io')(server)
+const io = require('socket.io')(server, {
+    cors: {
+        origin: '*'
+    }
+});
 
 const rooms = new Map();
 

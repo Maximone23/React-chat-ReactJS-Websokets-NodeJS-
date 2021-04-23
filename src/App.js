@@ -1,9 +1,11 @@
 import React from 'react';
+import SignInBlock from './components/SignInBlock';
+
 
 function App() {
   return (
-    <div className="App">
-      Test
+    <div className="wrapper">
+      <SignInBlock />
     </div>
   );
 }
